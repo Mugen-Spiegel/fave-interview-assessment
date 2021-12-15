@@ -1,0 +1,12 @@
+# .rubocop.yml
+
+Style/Documentation:
+  Enabled: false
+Metrics/LineLength:
+  Max: 300
+Metrics/AbcSize:
+  Max: 300
+Metrics/MethodLength:
+  Max: 300
+Layout/EndAlignment:
+  AutoCorrect: true
