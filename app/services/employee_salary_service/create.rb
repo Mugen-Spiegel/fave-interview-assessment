@@ -48,6 +48,7 @@ module EmployeeSalaryService
       monthly_income_tax = @total_tax / 12
       net_monthly_income = gross_monthly_income - monthly_income_tax
       {
+        'employee_name' => @employee_name,
         'gross_monthly_income' => sprintf("%.2f", gross_monthly_income),
         'monthly_income_tax' => sprintf("%.2f", monthly_income_tax),
         'net_monthly_income' => sprintf("%.2f", net_monthly_income)
