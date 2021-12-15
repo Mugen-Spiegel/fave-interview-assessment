@@ -10,7 +10,7 @@ module EmployeeSalaryService
 
     def call
       compute_total_tax
-      # create
+      create
       generate_income
     end
 
@@ -35,22 +35,23 @@ module EmployeeSalaryService
       end
     end
 
-    # def create
-    #     EmployeeSalary.create!(
-    #         employee_name: @employee_name,
-    #         annual_salary: @annual_salary,
-    #         monthly_income_tax: @total_tax / 12
-    #     )
-    # end
+    def create
+      EmployeeSalary.create!(
+        employee_name: @employee_name,
+        annual_salary: @annual_salary,
+        monthly_income_tax: @total_tax / 12
+      )
+    end
 
     def generate_income
       gross_monthly_income = @annual_salary / 12
       monthly_income_tax = @total_tax / 12
       net_monthly_income = gross_monthly_income - monthly_income_tax
       {
-        'gross_monthly_income' => sprintf("%.2f", gross_monthly_income),
-        'monthly_income_tax' => sprintf("%.2f", monthly_income_tax),
-        'net_monthly_income' => sprintf("%.2f", net_monthly_income)
+        'employee_name' => @employee_name,
+        'gross_monthly_income' => format('%.2f', gross_monthly_income),
+        'monthly_income_tax' => format('%.2f', monthly_income_tax),
+        'net_monthly_income' => format('%.2f', net_monthly_income)
       }
     end
   end
