@@ -9,8 +9,7 @@ RSpec.describe 'MonthlySalaryControllerController', type: :request do
     let(:expected_result) { { 'employee_name' => 'Rin', 'gross_monthly_income' => '5000.00', 'monthly_income_tax' => '500.00', 'net_monthly_income' => '4500.00' } }
     context 'create data for employee salary' do
       it 'should add new entry' do
-        request
-        expect(response.body).to eq(expected_result.to_json)
+        expect{ request }.to change(EmployeeSalary, :count).from(0).to(1)
         expect(response).to have_http_status(:ok)
       end
     end
