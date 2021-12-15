@@ -49,9 +49,9 @@ module EmployeeSalaryService
       net_monthly_income = gross_monthly_income - monthly_income_tax
       {
         'employee_name' => @employee_name,
-        'gross_monthly_income' => format('%.2f', gross_monthly_income),
-        'monthly_income_tax' => format('%.2f', monthly_income_tax),
-        'net_monthly_income' => format('%.2f', net_monthly_income)
+        'gross_monthly_income' => sprintf("%.2f", gross_monthly_income),
+        'monthly_income_tax' => sprintf("%.2f", monthly_income_tax),
+        'net_monthly_income' => sprintf("%.2f", net_monthly_income)
       }
     end
   end
