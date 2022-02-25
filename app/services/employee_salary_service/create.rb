@@ -10,7 +10,7 @@ module EmployeeSalaryService
 
     def call
       compute_total_tax
-      # create
+      create
       generate_income
     end
 
@@ -35,13 +35,13 @@ module EmployeeSalaryService
       end
     end
 
-    # def create
-    #     EmployeeSalary.create!(
-    #         employee_name: @employee_name,
-    #         annual_salary: @annual_salary,
-    #         monthly_income_tax: @total_tax / 12
-    #     )
-    # end
+    def create
+      EmployeeSalary.create!(
+        employee_name: @employee_name,
+        annual_salary: @annual_salary,
+        monthly_income_tax: @total_tax / 12
+      )
+    end
 
     def generate_income
       gross_monthly_income = @annual_salary / 12
